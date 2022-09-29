@@ -3,6 +3,7 @@ $(document).ready(function() {
   var timeLeft = 10;
   var interval;
   var score = 0;
+  var highScore = 0;
 
   var updateTimeLeft = function (amount) {
     timeLeft += amount;
@@ -18,6 +19,10 @@ $(document).ready(function() {
     if (!interval) {
       if (timeLeft === 0) {
         updateTimeLeft(10);
+        if (score > highScore) {
+          highScore = score;
+          $('#high-score').text(highScore);
+        }
         updateScore(-score);
       }
       interval = setInterval(function () {
