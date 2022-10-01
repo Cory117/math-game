@@ -4,6 +4,7 @@ $(document).ready(function() {
   var interval;
   var score = 0;
   var highScore = 0;
+  var numberLimit = 10;
 
   var updateTimeLeft = function (amount) {
     timeLeft += amount;
@@ -13,6 +14,11 @@ $(document).ready(function() {
   var updateScore = function (amount) {
     score += amount;
     $('#score').text(score);
+  };
+
+  var updateNumberLimit = function (limit) {
+    numberLimit = limit;
+    $('#num-lm').text(numberLimit);
   };
 
   var startGame = function () {
@@ -41,8 +47,8 @@ $(document).ready(function() {
 
   var questionGenerator = function () {
     var question = {};
-    var num1 = randomNumberGenerator(10);
-    var num2 = randomNumberGenerator(10);
+    var num1 = randomNumberGenerator(numberLimit);
+    var num2 = randomNumberGenerator(numberLimit);
   
     question.answer = num1 + num2;
     question.equation = String(num1) + " + " + String(num2);
@@ -67,6 +73,12 @@ $(document).ready(function() {
   $('#user-input').on('keyup', function () {
     startGame();
     checkAnswer(Number($(this).val()), currentQuestion.answer);
+  });
+
+  $('#number-limit').on('change', function () {
+    limit = Number($(this).val());
+    updateNumberLimit(limit);
+    renderNewQuestion();
   });
 
   renderNewQuestion();
