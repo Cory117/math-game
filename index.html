@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>10 Sec Math Game</title>
+    <title>Ten Second Math Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css"/>
@@ -11,24 +11,27 @@
   </head>
   <body>
     <div class="container">
+      <h2 id="game-title">Ten Second Math</h2>
       <div class="row">
-        <div class="col-xs-12 text-center">
-          <h2>10 Sec Math Game</h2>
-          <h3 id="time-left">10</h3>
-          <p>Time Remaining</p>
+        <div class="col-xs-8 text-center">
+          <div class="timer">
+            <h3 id="time-left">10</h3>
+            <h3>&nbspseconds left</h3>
+          </div>
           <h1 id="equation"></h1>
           <input id="user-input" type="number" placeholder="Answer"/>
-          <div class="row">
-            <div class="col-xs-12 text-center">
-              <label for="number-limit">Number Limit</label>
-              <h4 id="num-lm">10</h4>
-              <input id="number-limit" type="range" min="10" max="50" step="5" value="10"/>
-            </div>
-          </div>    
-          <h4>Current Score: <span id="score"></span></h4>
-          <h4>High Score: <span id="high-score"></span></h4>
+          <div class="limit-choice">
+            <h4 id="num-lm">10</h4>
+            <input id="number-limit" type="range" min="10" max="50" step="5" value="10"/>
+          </div>
         </div>
-      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <h3>Current Score: <span id="score"></span></h3>
+          <h3>High Score: <span id="high-score"></span></h3>
+        </div>
+      </div>           
+     </div>
     </div>
   </body>
 </html>
